@@ -1,4 +1,12 @@
 public class Main {
+    /*
+    Use the following methods:
+        .length()
+        .substring(start,finish) doesn't include finish
+        .substring(start) goes to the end
+        .indexOf(someString)
+        someString.equals(otherString)
+     */
     public static void main(String[] args) {
         System.out.println(VowelCount("This is a string."));
         System.out.println("Correct output: 4");
@@ -18,18 +26,37 @@ public class Main {
      * @return vowel count int
      */
     public static int VowelCount(String input){
+        int l = input.length();
+        String lowerCaseInput = input.toLowerCase();
+        int count = 0;
+        for(int i = 0; i < l; i++){
 
-        return -1;
+            String letter = input.substring(i,i+1);
+            if (letter.equals("a")|| letter.equals("e")||letter.equals("i")||letter.equals("o")||letter.equals("u")){
+                count++;
+            }
+        }
+        return count;
     }
 
     /**
      * Returns a string with all vowels removed regardless of case
+     *
      * @param input String
      * @return String with no vowels
      */
     public static String VowelRemover(String input){
 
-        return "";
+        int l = input.length();
+        String gg = "";
+        for(int i = 0; i < l; i++) {
+
+            String letter = input.substring(i, i + 1);
+            if (!letter.toLowerCase().equals("a") && !letter.toLowerCase().equals("e") && !letter.toLowerCase().equals("i") && !letter.toLowerCase().equals("o") && !letter.toLowerCase().equals("u")) {
+                gg += letter;
+            }
+        }
+        return gg;
     }
 
     /**
@@ -39,9 +66,17 @@ public class Main {
      * @return true if target found, false otherwise
      */
     public static boolean ContainsSubstring(String input, String target){
-
+    int a  = input.length();
+    int b = target.length();
+    for(int c = 0; c < (a-b); c++){
+        String snippet = input.substring(c,c+b);
+                if(snippet.equals(target)){
+                    return true;
+                }
+        }
         return false;
     }
+
 
     /**
      * Reverses a given string
